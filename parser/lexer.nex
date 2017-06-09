@@ -1,0 +1,6 @@
+/[0-9]+/ { lval.num, _ = strconv.Atoi(yylex.Text()); return NUMBER }
+/\+/     { return ADD }
+//
+package parser
+
+import "strconv"
