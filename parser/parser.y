@@ -1,11 +1,12 @@
 %{
 package parser
 
-import "fmt"
+import "github.com/l1fescape/gojs/syntax"
 %}
 
 %union {
-  num int
+  text string
+  node syntax.Node
 }
 
 %token NUMBER
@@ -23,15 +24,15 @@ program: expr
 
 expr: NUMBER
 {
-  $$ = $1
+  $$ = createNumberNode($1)
 }
 | expr ADD expr
 {
-  fmt.Println($1.num, "+", $3.num)
-  $$.num = $1.num + $3.num
+  // fmt.Println($1.num, "+", $3.num)
+  // $$.num = $1.num + $3.num
 }
 | expr SUB expr
 {
-  fmt.Println($1.num, "-", $3.num)
-  $$.num = $1.num - $3.num
+  // fmt.Println($1.num, "-", $3.num)
+  // $$.num = $1.num - $3.num
 }

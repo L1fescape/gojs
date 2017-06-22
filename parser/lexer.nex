@@ -1,7 +1,6 @@
-/[0-9]+/ { lval.num, _ = strconv.Atoi(yylex.Text()); return NUMBER }
+/[0-9]+/ { lval.text = yylex.Text(); return NUMBER }
 /\+/     { return ADD }
 /\-/     { return SUB }
 //
 package parser
 
-import "strconv"
