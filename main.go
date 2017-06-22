@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	node := parser.Parse(bytes.NewReader([]byte("1 + 2 + 3")))
+	node := parser.Parse(bytes.NewReader([]byte("3 - 1 - 1")))
 	spew.Dump(node)
 }

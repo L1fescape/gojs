@@ -10,8 +10,10 @@ import "fmt"
 
 %token NUMBER
 %token ADD
+%token SUB
 
-%right ADD
+%left ADD
+%left SUB
 
 %%
 program: expr
@@ -27,4 +29,9 @@ expr: NUMBER
 {
   fmt.Println($1.num, "+", $3.num)
   $$.num = $1.num + $3.num
+}
+| expr SUB expr
+{
+  fmt.Println($1.num, "-", $3.num)
+  $$.num = $1.num - $3.num
 }
